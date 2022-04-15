@@ -1,0 +1,45 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/rooms.css"
+
+</head>
+<body>
+    <%- include('includes/header.ejs') %>
+    <form action="/chat" method="post">
+    <div class="select-box">
+        <div class="select-box__current" tabindex="1">
+            <div class="select-box__value"><input class="select-box__input" type="radio" id="0" value="Digital control" name="room" checked="checked" />
+                <p class="select-box__input-text">Digital control</p>
+            </div>
+            <div class="select-box__value"><input class="select-box__input" type="radio" id="1" value="Modeling and Simulation" name="room" />
+                <p class="select-box__input-text">Modeling and Simulation</p>
+            </div>
+            <div class="select-box__value"><input class="select-box__input" type="radio" id="2" value="DSS" name="room" />
+                <p class="select-box__input-text">DSS</p>
+            </div>
+            <div class="select-box__value"><input class="select-box__input" type="radio" id="3" value="AI" name="room" />
+                <p class="select-box__input-text">AI</p>
+            </div>
+            <div class="select-box__value"><input class="select-box__input" type="radio" id="4" value="Software Engineering" name="room" />
+                <p class="select-box__input-text">Software Engineering</p>
+            </div>
+            <div class="select-box__value"><input class="select-box__input" type="radio" id="5" value="PLC" name="room" />
+                <p class="select-box__input-text">PLC</p>
+            </div>
+            <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true" />
+        </div>
+        <ul class="select-box__list">
+            <li><label class="select-box__option" for="0" aria-hidden="aria-hidden">Digital control</label></li>
+            <li><label class="select-box__option" for="1" aria-hidden="aria-hidden">Modeling and Simulation</label></li>
+            <li><label class="select-box__option" for="2" aria-hidden="aria-hidden">DSS</label></li>
+            <li><label class="select-box__option" for="3" aria-hidden="aria-hidden">AI</label></li>
+            <li><label class="select-box__option" for="4" aria-hidden="aria-hidden">Software Engineering</label></li>
+            <li><label class="select-box__option" for="5" aria-hidden="aria-hidden">PLC</label></li>
+        </ul>
+        
+        <input class="btn item" type="submit">
+    </div>
+        
+    </form>
+    
+<%- include('includes/end.ejs') %>

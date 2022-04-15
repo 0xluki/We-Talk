@@ -1,0 +1,23 @@
+<%- include('includes/head.ejs')%>
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/contactform.css">
+</head>
+<body>
+    
+<%- include('includes/header.ejs')%>
+<% if (successMsg.length > 0) { %>
+    <div class="bar success">
+      <i class="ico">&#10004;</i> <%= successMsg %>
+    </div>
+  <% } %>
+<div class="container">
+    <h2>Contact Us</h2>
+    <form action="/contact-us" method="post">
+        <input type="email" name="email" id="email" placeholder="Email">
+        <input type="text" name="name" id="name" placeholder="Name">
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter your message here"></textarea>
+        <input type="submit" value="Send">
+    </form>
+</div>
+<%- include('includes/end.ejs')%>

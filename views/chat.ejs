@@ -1,0 +1,91 @@
+<%- include('includes/head.ejs')%>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+</head>
+<body>
+  <%- include('includes/header.ejs')%>
+  <div class="chat-container">
+    <header class="chat-header">
+      <h1 class="chat-title"> We Talk</h1>
+      <a href="/rooms" class="btn">Leave Room</a>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3> Room Name</h3>
+        <h2 id="room-name"></h2>
+        <h3><i class="fa fa-circle online"></i> Online</h3>
+        <ul id="users"></ul>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <% if(messages.length > 0) { %>
+          <%for (message of messages) { %>
+            <% if(message.msg) { %>
+              <div class="message">
+                <p class="meta">
+                  <%= message.userId.name %> <span>
+                    <%= moment(message.date).format('h:mm a, Do MMMM, YYYY') %>
+                    </span>
+                </p>
+                <p class="text">
+                  <%= message.msg %>
+                </p>
+              </div>
+              <% } else { %>
+                <div class="message" id="message">
+                  <p class="meta">
+                    <%= message.userId.name %> <span>
+                      <%= moment(message.date).format('h:mm a, Do MMMM, YYYY') %>
+                      </span>
+                  </p>
+                  <p class="text" id="message">
+                    <img style='display:block; width:400px;height:400px;' id='base64image'
+                    src='<%= message.imagePath %>' />
+                  </p>
+                </div>
+             <% } %>
+          <% } %>
+        <% } %>
+        <!-- <div class="message" id="newImage">
+          
+        </div>    -->
+      </div>
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          class="item"
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        
+          <div class="input--file item">
+            <label class ="image" for="imageUpload">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="3.2"/>
+                <path d="M9 2l-1.83 2h-3.17c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-12c0-1.1-.9-2-2-2h-3.17l-1.83-2h-6zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                <path d="M0 0h24v24h-24z" fill="none"/>
+              </svg>
+            </span>
+        
+            <input type='file' id="imageUpload" >
+        </label>
+          </div>
+        <div class="item">
+        <button class="btn"> Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

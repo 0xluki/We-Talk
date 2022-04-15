@@ -1,0 +1,67 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/nav.css"> 
+</head>
+<body>
+<%- include('includes/header.ejs') %>
+  <% if (errorMsg.length > 0) { %>
+    <br>
+    <div class="bar error">
+      <i class="ico">&#9747;</i> <%= errorMsg %>
+    </div>
+    <br>
+  <% } %>
+  <% if (successMsg.length > 0) { %>
+    <br>
+    <div class="bar success">
+      <i class="ico">&#10004;</i> <%= successMsg %>
+    </div>
+    <br>
+  <% } %>
+  <% if (warnMsg.length > 0) { %>
+    <br>
+    <div class="bar warn">
+      <i class="ico">&#9888;</i> <%= warnMsg %>
+    </div>
+    <br>
+  <% } %>
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form action="/signup" method="post">
+        <h1>Create Account</h1>
+        <br><br>
+        <span> use your email for registration</span>
+        <input type="text" placeholder="Name" name="name" />
+        <input type="email" placeholder="Email" name="email" />
+        <input type="password" placeholder="Password" name="password" />
+        <button>Sign Up</button>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form action="/login" method="post">
+        <h1>Sign in</h1>
+        <br><br>
+        <span> use your account</span>
+        <input type="email" placeholder="Email" name="email" />
+        <input type="password" placeholder="Password" name="password" />
+        <button>Sign In</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start journey with us</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/js/index.js"></script>
+<%- include('includes/end.ejs') %> 

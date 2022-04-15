@@ -1,0 +1,19 @@
+<header class="main-header">
+    <span class="text-clickable">
+      <a class="nav-links" href="/">
+        <h1>We Talk</h1>
+      </a>
+    </span>
+    <nav>
+      <ul class="nav-links">
+
+        <% if (isAuthenticated) { %>
+            <li><a href="/rooms">Rooms</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        <% } else { %>
+        <li><a href="/">Home</a></li>
+        <% } %> 
+      </ul>
+    </nav>
+    <a href="/contact-us"><button>Contact Us</button></a>
+  </header>
