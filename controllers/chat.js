@@ -61,7 +61,7 @@ exports.postChat = (req, res, next) => {
                 const newMsg =  formatMessage(user.username, msg);
                 //storing the message details in the DB
                 const message = new Message({
-                    msg:msg.text,
+                    msg:newMsg.text,
                     userId: req.session.user,
                     date: new Date (newMsg.time),
                     room: room
